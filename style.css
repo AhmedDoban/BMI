@@ -123,4 +123,20 @@
     border-radius: 30px;
     transition: .5s;
 }
-
+@media (max-width: 992px) {
+    *{
+        justify-content: center;
+        justify-items: center;
+        
+       background-color: #191919;
+    }
+    .hero{
+        padding-top: 45%;
+        width: 100%;
+        background-color: #191919;
+    }
+    .form-box{
+        width: 100%;
+        padding-bottom: 80px;
+    }
+  }
