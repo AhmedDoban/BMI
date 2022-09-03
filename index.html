@@ -1,178 +1,48 @@
-<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Design Your Health</title>
-</head>
-<body>
-<div class="hero">
-    <div class="form-box">
-        <div class="btn-box">
-            <div id="btn"></div>
-            <button type="button" class="btn-w" onclick="BMI()" id="BMII">BMI</button>
-            <button type="button" class="btn-w" onclick="Fatpercentage()" id="BMIII">Fat percentage</button>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BMI</title>
+    <!--Google Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!--Style-->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="home">
+      <div class="container">
+        <div class="left">
+          <h1>BMI</h1>
+          <p>Body Mass <span>Index</span></p>
         </div>
-        <form id="BMI" class="box" method="post">
-            <input id="tall" type="text" placeholder="اكتب طولك هنا بحبى" />
-            <input id="wedi" type="text" placeholder="وزنك هنا يقلب  ">
-            <input type="button"  value="على البركه " onclick="btn001()" >
-
-            <p id="message001"></p>
-            <p id="mess"></p>
-            <p id="tallmessage"></p>
-            <p id="wedimessage"></p>
-
-            <script>
-                function btn001() {
-                    var tal;
-                    var wed;
-
-
-                    var talll = tall.value;
-                    var wedth = wedi.value;
-
-                    for(var i=120;i<=300;i++ ){
-                        if (talll==i){
-                            tal="  طولك حلو اهه يءمر  الى هوه   "+talll +" يعنى ";
-                            talll=talll/(100);
-                            talll=talll*talll;
-                            break;
-                        }
-                        else if(talll==-i || talll!==i ){
-                            tal="انت عبيط يسطا"+"معرفتكش انا كده " ;
-
-                        }
-                    }
-
-                    for(var l=25;l<=486;l++ ){
-                        if (wedth==l){
-                            wed=" وزنك حلو اهه عاش يعم "+wedth+"   يا باختك يعم ";
-                            break;
-                        }
-                        else if(wedth==-l || wedth!==l ){
-                            wed="انت عايش اذاى كده  متهبدش على الكيبورد تانى  " ;
-                        }
-                    }
-
-                    var sum=wedth/talll;
-                    var result;
-
-                    if(sum<18.5){
-                        result="لا محتاجين نتغذى شويه يسطا ";
-                    }
-                    else if(sum<24.9 ){
-                        result="وزنك مناسب لطولك يسطا ابسط";
-                    }
-                    else if(sum>25.0 ,sum<29.9){
-                        result="محتاج تخس سيكا يصاحبى بس عاش  ";
-                    }
-                    else if(sum>30){
-                        result="هتموت يسطا يخربيتك محتاج تخس";
-                    }
-                    document.getElementById("message001").innerHTML =sum;
-                    document.getElementById("mess").innerHTML =result;
-                    document.getElementById("tallmessage").innerHTML =tal;
-                    document.getElementById("wedimessage").innerHTML =wed;
-                }
-            </script>
-        </form>
-
-        <form  id ="Fat-percentage"  class="box"  method="post">
-                <input type="radio" name="s" id="male" >  MALE </input>
-                <input type="radio" name="s" id="famile"> FEMALE </input>
-                <input type="text" placeholder="وزنك هنا يقلب " id="wedo">
-                 <input type="text" placeholder=" طولك يجميل " id="tmmm">
-                 <input type="text" placeholder=" عمرك يقمر " id="age">
-                <input type="button"  value="على البركه " onclick="mass()">
-                 <p id="message01"></p>
-                <p id="message1"></p>
-            <script>
-                function mass(){
-                    var we=wedo.value;
-                    var x=tmmm.value;
-                    var y=age.value;
-
-                    var mal=document.getElementById("male");
-                    var fa=document.getElementById("famile");
-
-                    var sum=0;
-                    x=x/100;
-                    x=x*x;
-                    var bmi=we/x;
-
-                    var agee=y/100;
-                    var n=agee+.23;
-
-                    var resulte;
-                    for(var l=25;l<=486;l++ ){
-                        if(we==l) {
-                            if (mal.checked == true) {
-                                sum =((1.20)*bmi)-(10.8)-(5.4)+n;
-                                if(sum<5){
-                                    resulte="لا دى شويه دهون اساسيه متقلقش ";
-                                }
-                                else if(sum>5 ,sum<14 ){
-                                    resulte="اوعا الرياضى ايوا بقا ";
-                                }
-                                else if(sum>14 ,sum<17.9){
-                                    resulte="واعا اللياقه هتدوسنا  ";
-                                }
-                                else if(sum>18 ,sum<25.9){
-                                    resulte="بص خس بس جسمك مقبول";
-                                }else if(sum>26){
-                                    resulte="خس يحب خس احسنلك واحسنلى برده علشان بعانى";
-                                }
-                                break;
-                            } else if (fa.checked == true) {
-                                sum =((1.20)*bmi)-(5.4)-n;
-                                if(sum<13.9){
-                                    resulte="لا دى شويه دهون متاخديش فى بالك ";
-                                }
-                                else if(sum>14 ,sum<20.9 ){
-                                    resulte=" لا دا جسم رياضى منك عاش عملتيها اذاى ؟ ";
-                                }
-                                else if(sum>21 ,sum<24.9){
-                                    resulte="الياقه عايزه منك اى ";
-                                }
-                                else if(sum>25 ,sum<31.9){
-                                    resulte="رياضه وجيم جيم ورياضه بقا";
-                                }else if(sum>32){
-                                    resulte="خس يحب خس احسنلك واحسنلى برده علشان بعانى";
-                                }
-                                break;
-                            }
-                        }
-                        else{
-                            sum = "مستعبطتش يسطا ودخل البيانات عدل عايزين نشوف دهونك ";
-                        }
-                }
-
-                    document.getElementById("message01").innerHTML =sum;
-                    document.getElementById("message1").innerHTML =resulte;
-                }
-            </script>
-            </form>
+        <div class="right">
+          <h1 class="status"></h1>
+          <label for="weight"> Weight</label>
+          <input
+            type="text"
+            placeholder="75 kgs"
+            name="weight"
+            class="Weight"
+          />
+          <label for="weight"> Height</label>
+          <input
+            type="text"
+            placeholder="175 cms"
+            name="height"
+            class="height"
+          />
+          <p id="result"></p>
+          <input type="button" value="calculate" class="calculate" />
+        </div>
+      </div>
     </div>
-</div>
-<script>
-    var w=document.getElementById("BMI")
-    var c=document.getElementById("Fat-percentage")
-    var n=document.getElementById("btn")
-
-
-    function Fatpercentage(){
-        w.style.left="-600px";
-         c.style.left="200px";
-        n.style.left="150px";
-    }
-    function BMI(){
-        w.style.left="200px";
-        c.style.left="600px";
-        n.style.left="0";
-    }
-</script>
-
-</body>
+    <script src="main.js"></script>
+  </body>
 </html>
